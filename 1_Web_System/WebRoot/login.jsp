@@ -25,8 +25,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
    
    <center>  Spring Test <br>
-   <form action="hello">
-    UserName:<input type="text" name="name"><br>
+   <form action="login">
+    UserName:<input type="text" name="username"><br>
+    PassWord:<input type="text" name="password"><br>
     <input type="submit"value="submit">
    </form>
     </center>

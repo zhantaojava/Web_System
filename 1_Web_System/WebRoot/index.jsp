@@ -23,6 +23,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     This is my JSP page. <br>
     
+    <%
+    if(request.getAttribute("erro")!=null){
+    	out.println(request.getAttribute("erro"));
+    } %>
+    
+    
     ${message }
   </body>
 </html>
