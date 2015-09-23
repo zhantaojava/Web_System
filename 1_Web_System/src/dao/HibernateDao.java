@@ -4,12 +4,15 @@ import java.util.List;
 
 import model.User;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.annotations.common.util.impl.LoggerFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
+import org.springframework.stereotype.Repository;
 
 public class HibernateDao {
 	private static SessionFactory sessionFactory;
@@ -21,6 +24,7 @@ public class HibernateDao {
 	 * @param password
 	 * @return
 	 */
+	@SuppressWarnings("deprecation")
 	public List searchUser(String username) {
 		Configuration configuration = new Configuration();
 		configuration.configure();

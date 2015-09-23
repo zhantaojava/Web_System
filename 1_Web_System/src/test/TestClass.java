@@ -12,7 +12,6 @@ public class TestClass {
 		HibernateDao h=new HibernateDao();
 		List list=new ArrayList();
 		list=h.searchUser("1");
-		System.out.println(list.get(0));
 		
 	}
 
