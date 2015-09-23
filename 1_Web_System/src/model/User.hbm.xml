@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping package="model">
+   <class name="User" table="UserValidator">
+   	<id name="id">
+   	
+   	<!-- <generator class="identity"> -->
+   	 <generator class="org.hibernate.id.TableHiLoGenerator"> 
+    </generator>
+   	</id>
+   	<property name="name" ></property>
+    <property name="age" ></property>
+   	<property name="pw"></property>
+   	<property name="date"></property>
+   	
+   </class>
+   
+</hibernate-mapping>
