@@ -25,13 +25,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
    
    <center>  Spring Test <br>
-   <form action="login">
+   <form action="login" method="post">
     UserName:<input type="text" name="username"><br>
     PassWord:<input type="text" name="password"><br>
     <input type="submit"value="submit">
    </form>
+   <br><br>
+   ${ErrorMessage }
     </center>
-    
+     
     
   </body>
 </html>

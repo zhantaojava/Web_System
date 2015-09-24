@@ -22,9 +22,8 @@ public class HibernateDao {
 	 * 
 	 * @param username
 	 * @param password
-	 * @return
+	 * @return user
 	 */
-	@SuppressWarnings("deprecation")
 	public List searchUser(String username) {
 		Configuration configuration = new Configuration();
 		configuration.configure();
@@ -43,12 +42,12 @@ public class HibernateDao {
 		query.setString("name", username);
 		List<User> list = query.list();
 
-		// List<User> list = session.createQuery("from User").list();
-
 		session.getTransaction().commit();
 
 		return list;
 
 	}
+	
+	
 
 }
