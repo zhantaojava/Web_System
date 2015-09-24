@@ -1,12 +1,17 @@
 package model;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.junit.Test;
 
 import dao.HibernateDao;
-
+/**
+ * Function same as Service Layer
+ * @author suzhantao
+ *
+ */
 public class UserBeanProcess {
 	private HibernateDao hibernateDao=new HibernateDao();
 	
@@ -35,4 +40,38 @@ public class UserBeanProcess {
 
 		return b;
 	}
+	
+	public boolean AddUser(String username,String password,int age){
+		boolean statue=false;
+		
+		
+		//determine if the user existing 
+		List<User> list = new LinkedList<User>();
+		list=hibernateDao.searchUser(username);
+		
+		User user=new User();
+		user.setName(username);
+		
+		boolean userExisting=list.contains(user);
+		
+		Date date=new Date();
+		
+		//if user not existing ,execute saving
+		if(userExisting==false){
+			user.setAge(age);
+			user.setPw(password);
+			user.setDate(date);
+			
+			Object object=hibernateDao.save(user);
+			statue=true;
+			return statue;
+		}
+		else{
+			return statue;
+		}
+		
+		
+	}
+	
+	
 }

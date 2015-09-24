@@ -45,9 +45,31 @@ public class HibernateDao {
 		session.getTransaction().commit();
 
 		return list;
+		
+	}
+
+	/**
+	 * @author suzhantao
+	 * @param user
+	 *            : user instance 哈哈
+	 * @return obj: save的返回值为一个obj，用来判断是否save成功
+	 */
+	public Object save(User user) {
+		Configuration configuration = new Configuration();
+		configuration.configure();
+		serviceRegistry = new ServiceRegistryBuilder().applySettings(
+				configuration.getProperties()).buildServiceRegistry();
+		sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+
+		Object obj = session.save(user);
+
+		session.getTransaction().commit();
+
+		return obj;
 
 	}
-	
-	
 
 }

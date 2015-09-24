@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'wel.jsp' starting page</title>
+    <title>My JSP 'register.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -22,31 +22,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   
-  <body>
-  <center>    
-  Welcome <br>
-    
-    <%
-    HttpSession hs=request.getSession();
-    String username=(String)hs.getAttribute("user");
-    
-    if(username!=null){
-    	out.println("Welcome you: "+username);
-    }
-    
-    
-    %><br>
-    
-    ${statue }<br><br>
-    
-    Username:${username }<br>
-    
-    Age:${age }<br>
-    <br>
-    <a href="/1_Web_System/login.jsp">Back</a>
-    
-    
-     </center>
-     
+  <body bgcolor="#CED3FE">
+  	<center>
+  	
+    Please Fill The Form
+    <form name="register_form" action="addUser" method="post" >
+    	 
+    	 <table >
+    	 
+    	 <tr><td>UserName</td><td><input type="text" name="username" ></td></tr>
+    	 <tr><td>PassWord</td><td><input type="text" name="password"></td></tr>
+    	 <tr><td>Age</td><td><input type="text" name="age"></td></tr>
+    	
+    	<td><br><button type="submit">Submit</button></td>
+    	<td><br><button type="reset">Reset</button></td>
+    </form>
+    <tr><td><form action="main.jsp">
+    <button>Back</button></form></td></tr>
+    </table>
+    </center>
   </body>
 </html>
