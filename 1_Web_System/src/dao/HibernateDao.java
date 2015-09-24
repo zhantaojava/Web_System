@@ -18,6 +18,8 @@ public class HibernateDao {
 	private static SessionFactory sessionFactory;
 	private static ServiceRegistry serviceRegistry;
 
+	private int pageCount;
+	private int pageSize ;
 	/**
 	 * 
 	 * @param username
@@ -70,6 +72,67 @@ public class HibernateDao {
 
 		return obj;
 
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public int SearchPageCount(int pageSize) {
+		Configuration configuration = new Configuration();
+		configuration.configure();
+		serviceRegistry = new ServiceRegistryBuilder().applySettings(
+				configuration.getProperties()).buildServiceRegistry();
+		sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+
+		Session session = sessionFactory.getCurrentSession();
+
+		session.beginTransaction();
+
+		List list = session.createQuery("from User").list();
+
+		session.getTransaction().commit();
+
+		int rowCount = list.size();
+
+		if (rowCount % pageSize == 0) {
+			pageCount = rowCount / pageSize;
+		} else {
+			pageCount = rowCount / pageSize + 1;
+		}
+
+		return pageCount;
+
+	}
+	
+	
+	
+	/**
+	 * Paging
+	 * 
+	 * @param pageNow
+	 * @param pageSize
+	 * @return
+	 */
+	public List searchPage(int pageNow, int pageSize) {
+		Configuration configuration = new Configuration();
+		configuration.configure();
+
+		serviceRegistry = new ServiceRegistryBuilder().applySettings(
+				configuration.getProperties()).buildServiceRegistry();
+		sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+
+		Session session = sessionFactory.getCurrentSession();
+
+		session.beginTransaction();
+
+		List list = session.createQuery("from User")
+				.setFirstResult(pageSize * (pageNow - 1))
+				.setMaxResults(pageSize).list();
+
+		session.getTransaction().commit();
+
+		return list;
 	}
 
 }
