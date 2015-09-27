@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*,dao.HibernateDao" pageEncoding="US-ASCII"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -22,8 +24,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     This is my JSP page. <br>
+	
+    <form ACTION="jspCheckBox.jsp">
+<input type="checkbox" name="id" value="Java"> Java<BR>
+<input type="checkbox" name="id" value=".NET"> .NET<BR>
+${webFrameworkList}<br>
+<input type="checkbox" name="id" value="PHP"> PHP<BR>
+<input type="checkbox" name="id" value="C/C++"> C/C++<BR>
+<input type="checkbox" name="id" value="PERL"> PERL <BR>
+<input type="submit" value="Submit">
+
+
+   
+</form>
     
-    
+    ${kj }
     ${message }
   </body>
 </html>

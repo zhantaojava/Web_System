@@ -5,6 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import dao.HibernateDao;
 /**
@@ -12,8 +15,11 @@ import dao.HibernateDao;
  * @author suzhantao
  *
  */
+@Component
 public class UserBeanProcess {
-	private HibernateDao hibernateDao=new HibernateDao();
+	
+	@Autowired
+	private HibernateDao hibernateDao;
 	
 	/**
 	 * 
@@ -72,6 +78,7 @@ public class UserBeanProcess {
 		
 		
 	}
-	
+
+		
 	
 }

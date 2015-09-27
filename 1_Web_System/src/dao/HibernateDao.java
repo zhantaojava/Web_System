@@ -12,8 +12,10 @@ import org.hibernate.annotations.common.util.impl.LoggerFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+@Component
 public class HibernateDao {
 	private static SessionFactory sessionFactory;
 	private static ServiceRegistry serviceRegistry;
