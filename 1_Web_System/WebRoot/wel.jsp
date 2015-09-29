@@ -109,11 +109,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 			}
 		%>
+		<br>
+		<br>
+		<br>
+		Spring MVC table:<br>
+		 Username:<br>
+     [${userList.get(0).getName()}] <br>
+     [${userList.get(1).getName()}] <br>
+     [${userList.get(2).getName()}]<br>
+     <br>
+		<%
+			for (int i = 1; i <= pageCount; i++) {
+
+				out.println("<a href=retrieveUser?pageNow=" + i + ">[" + i + "]</a>");
+
+			}
+		%>
 		
 		
 		
 		
-		<a href=retrieveUser?pageNow=3>setPage</a>
+		
 		
 		
 		
@@ -126,10 +142,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<input type="submit"value="submit">
      </form>
      <br><br><br>
-     Username:
-     [${userList.get(0).getName()}] 
-     [${userList.get(1).getName()}] 
-     [${userList.get(2).getName()}]
+     
+    
      
   </body>
 </html>
