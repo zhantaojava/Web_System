@@ -29,6 +29,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     Name:  ${user.getName()}<br>
     Age:   ${user.getAge()}<br>
     Date:  ${user.getDate() }<br>
+    <a href="${user.getName()}/edit">Edit Profile</a>
+    <!-- recommend use Id to get user profile ,in case of conflict username  -->
+    
     </center>
   </body>
 </html>
