@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     This is my JSP page. <br>
 	
-    <form ACTION="jspCheckBox.jsp">
+    <form ACTION="login.jsp">
 <input type="checkbox" name="id" value="Java"> Java<BR>
 <input type="checkbox" name="id" value=".NET"> .NET<BR>
 ${webFrameworkList}<br>
@@ -36,6 +36,13 @@ ${webFrameworkList}<br>
 
 
    
+</form>
+<br>
+<form action="loginValidation" method="post">
+  UserName:<input type="text" name="username"><br>
+    PassWord:<input type="text" name="password"><br>
+<input type="submit" value="Submit">
+
 </form>
     
     ${kj }

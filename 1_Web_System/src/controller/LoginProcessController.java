@@ -1,12 +1,17 @@
 package controller;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import model.User;
 import model.UserBeanProcess;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,13 +24,30 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class LoginProcessController {
-	
+
 	@Autowired
 	UserBeanProcess ubp;
-	
 
 	ModelAndView mv = new ModelAndView();
 
+	@RequestMapping(value = "loginValidation", method = RequestMethod.POST)
+	public String LoginValidation(
+			@RequestParam(value = "username") String username,
+			@RequestParam(value = "password") String password) {
+		String url=null;
+		if (ubp.ValidateUser(username, password)) {
+			System.out.println("loginValidation hit");
+			 return "redirect:retrieveUser";
+			
+		} else {
+			url="index";
+		}
+
+		return url;
+	}
+
+	
+	
 	/**
 	 * 
 	 * @param request
@@ -67,8 +89,76 @@ public class LoginProcessController {
 			mv = new ModelAndView("wel");
 			mv.addObject("statue", "Create User Failue");
 		}
-		
-		
+
+		return mv;
+
+	}
+
+	/**
+	 * call from GetUser
+	 * 
+	 * @param username
+	 * @return
+	 */
+	@RequestMapping(value = "user/{username}", method = RequestMethod.GET)
+	public ModelAndView GetUserProfile(@PathVariable String username) {
+
+		mv = new ModelAndView("userProfile");
+		System.out.println("uname:" + username);
+
+		User user = new User();
+
+		user = ubp.GetUserProfile(username);
+
+		mv.addObject("user", user);
+
+		return mv;
+
+	}
+
+	/**
+	 * call GetUserProfile ,path username to user/{username}
+	 * 
+	 * @param username
+	 * @return
+	 */
+	@RequestMapping(value = "getUser", method = RequestMethod.GET)
+	public String GetUser(@RequestParam(value = "username") String username) {
+
+		return "redirect:user/" + username;
+
+	}
+
+	/**
+	 * 
+	 * @param pageNow
+	 * @param pageSize
+	 * @return
+	 */
+	@RequestMapping(value = "retrieveUser", method = RequestMethod.GET)
+	public ModelAndView RetrieveUser(HttpServletRequest request) {
+		String s_pageNow = request.getParameter("pageNow");
+		System.out.println("s_pageNow:" + s_pageNow);
+
+		int pageNow = 1;
+		if (s_pageNow != null) {
+			pageNow = Integer.parseInt(s_pageNow);
+		} else {
+			pageNow = 1;
+		}
+
+		int pageSize = 3;
+
+		System.out.println("retrieveUser");
+
+		List<User> list = new LinkedList();
+
+		list = ubp.RetrieveUser(pageNow, pageSize);
+
+		mv = new ModelAndView("wel");
+
+		mv.addObject("userList", list);
+
 		return mv;
 
 	}

@@ -10,24 +10,26 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import dao.HibernateDao;
+
 /**
  * Function same as Service Layer
+ * 
  * @author suzhantao
- *
+ * 
  */
 @Component
 public class UserBeanProcess {
-	
+
 	@Autowired
 	private HibernateDao hibernateDao;
-	
+
 	/**
 	 * 
 	 * @param username
 	 * @param password
 	 * @return
 	 */
-	public boolean ValidateUser(String username,String password){
+	public boolean ValidateUser(String username, String password) {
 		boolean b = false;
 
 		List<User> list = new LinkedList<User>();
@@ -46,39 +48,59 @@ public class UserBeanProcess {
 
 		return b;
 	}
-	
-	public boolean AddUser(String username,String password,int age){
-		boolean statue=false;
-		
-		
-		//determine if the user existing 
+
+	public boolean AddUser(String username, String password, int age) {
+		boolean statue = false;
+
+		// determine if the user existing
 		List<User> list = new LinkedList<User>();
-		list=hibernateDao.searchUser(username);
-		
-		User user=new User();
+		list = hibernateDao.searchUser(username);
+
+		User user = new User();
 		user.setName(username);
-		
-		boolean userExisting=list.contains(user);
-		
-		Date date=new Date();
-		
-		//if user not existing ,execute saving
-		if(userExisting==false){
+
+		boolean userExisting = list.contains(user);
+
+		Date date = new Date();
+
+		// if user not existing ,execute saving
+		if (userExisting == false) {
 			user.setAge(age);
 			user.setPw(password);
 			user.setDate(date);
-			
-			Object object=hibernateDao.save(user);
-			statue=true;
+
+			Object object = hibernateDao.save(user);
+			statue = true;
+			return statue;
+		} else {
 			return statue;
 		}
-		else{
-			return statue;
-		}
+
+	}
+	/**
+	 * GetUserProfile by username
+	 * @param username
+	 * @return user
+	 */
+	public User GetUserProfile(String username) {
+		List<User> list = new LinkedList();
+
+		User user = new User();
+
+		list = hibernateDao.searchUser(username);
+
+		user = list.get(0);
+
+		return user;
+	}
+	
+	
+	public List RetrieveUser(int pageNow,int pageSize){
+		List<User> list = new LinkedList();
 		
+		list=hibernateDao.searchPage(pageNow, pageSize);
 		
+		return list;
 	}
 
-		
-	
 }

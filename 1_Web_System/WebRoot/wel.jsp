@@ -109,7 +109,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 			}
 		%>
+		
+		
+		
+		
+		<a href=retrieveUser?pageNow=3>setPage</a>
+		
+		
+		
      </center>
+     
+     
+     <br>     <br>     <br>     <br>     <br>     <br>     <br>     <br>
+     <form action="getUser">
+    	Get Username:<input type="text" name="username">
+    	<input type="submit"value="submit">
+     </form>
+     <br><br><br>
+     Username:
+     [${userList.get(0).getName()}] 
+     [${userList.get(1).getName()}] 
+     [${userList.get(2).getName()}]
      
   </body>
 </html>
