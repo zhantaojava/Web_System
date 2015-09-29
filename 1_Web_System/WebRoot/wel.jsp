@@ -112,12 +112,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<br>
 		<br>
 		<br>
+		
+		
 		Spring MVC table:<br>
-		 Username:<br>
-     [${userList.get(0).getName()}] <br>
-     [${userList.get(1).getName()}] <br>
-     [${userList.get(2).getName()}]<br>
-     <br>
+		<table border=2>
+			<tr>
+			<td>Name:</td>
+			<td>Age:</td>
+			<td>Date:</td>
+			</tr>
+			<tr>
+			<td>${userList.get(0).getName()}</td>
+			<td>${userList.get(0).getAge()}</td>
+			<td>${userList.get(0).getDate()}</td>
+			
+			
+		</table>
 		<%
 			for (int i = 1; i <= pageCount; i++) {
 

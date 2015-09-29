@@ -30,24 +30,28 @@ public class LoginProcessController {
 
 	ModelAndView mv = new ModelAndView();
 
+	/**
+	 * 
+	 * @param username
+	 * @param password
+	 * @return
+	 */
 	@RequestMapping(value = "loginValidation", method = RequestMethod.POST)
 	public String LoginValidation(
 			@RequestParam(value = "username") String username,
 			@RequestParam(value = "password") String password) {
-		String url=null;
+		String url = null;
 		if (ubp.ValidateUser(username, password)) {
 			System.out.println("loginValidation hit");
-			 return "redirect:retrieveUser";
-			
+			return "redirect:retrieveUser";
+
 		} else {
-			url="index";
+			url = "index";
 		}
 
 		return url;
 	}
 
-	
-	
 	/**
 	 * 
 	 * @param request
@@ -79,14 +83,14 @@ public class LoginProcessController {
 			@RequestParam(value = "age") int age) {
 
 		if (ubp.AddUser(username, password, age)) {
-			mv = new ModelAndView("wel");
+			mv = new ModelAndView("redirect:retrieveUser");
 			mv.addObject("username", username);
 			mv.addObject("password", password);
 			mv.addObject("age", age);
 			mv.addObject("statue", "Create User Successful");
 
 		} else {
-			mv = new ModelAndView("wel");
+			mv = new ModelAndView("register");
 			mv.addObject("statue", "Create User Failue");
 		}
 
