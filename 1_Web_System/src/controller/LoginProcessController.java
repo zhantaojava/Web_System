@@ -185,5 +185,16 @@ public class LoginProcessController {
 		mv.addObject("userProfile", user);
 		return mv;
 	}
+	
+	@RequestMapping(value="update",method=RequestMethod.POST)
+	public ModelAndView UpdateUser(@ModelAttribute("user") User user){
+		
+		System.out.println(user.getId());
+		System.out.println(user.getName());
+		
+		mv=new ModelAndView("index");
+		
+		return mv;
+	}
 
 }

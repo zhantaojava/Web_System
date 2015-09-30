@@ -25,11 +25,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-	<form action="">
-	Username:<input type="text" name="username"  value="${userProfile.getName() }"><br>
-	Password:<input type="text" name="password"  value="${userProfile.getPw() }"><br>
-	Age:<input type="text" name="age"  value="${userProfile.getAge() }">
-	
+	<form action="update"  method="post">
+	<input type="hidden" name="id" value="${userProfile.getId() }">
+	Username:<input type="text" name="name"  value="${userProfile.getName() }"><br>
+	Password:<input type="text" name="pw"  value="${userProfile.getPw() }"><br>
+	Age:<input type="text" name="age"  value="${userProfile.getAge() }"><br>
+	<input type="submit" name="Submit">
 	</form>
   </body>
 </html>
