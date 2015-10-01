@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -178,7 +179,7 @@ public class LoginProcessController {
 			@PathVariable("username") String username) {
 		System.out.println("uname:" + username);
 		User user = new User();
-
+		
 		user = ubp.GetUserProfile(username);
 
 		mv = new ModelAndView("editUserProfile");
@@ -186,13 +187,24 @@ public class LoginProcessController {
 		return mv;
 	}
 	
-	@RequestMapping(value="update",method=RequestMethod.POST)
+	
+	//{userId}
+	/**
+	 * Execute Update User 
+	 * @param user
+	 * @return
+	 */
+	@RequestMapping(value="{name}",method=RequestMethod.POST)
 	public ModelAndView UpdateUser(@ModelAttribute("user") User user){
 		
-		System.out.println(user.getId());
-		System.out.println(user.getName());
+		Date date=new Date();
+		user.setDate(date);
 		
-		mv=new ModelAndView("index");
+		ubp.UpdateUser(user);
+		
+		
+		mv=new ModelAndView("redirect:user/" + user.getName());
+		
 		
 		return mv;
 	}

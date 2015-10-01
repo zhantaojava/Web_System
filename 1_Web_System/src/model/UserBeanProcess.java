@@ -94,7 +94,12 @@ public class UserBeanProcess {
 		return user;
 	}
 	
-	
+	/**
+	 * Retrieve User,and do pagination
+	 * @param pageNow
+	 * @param pageSize
+	 * @return
+	 */
 	public List RetrieveUser(int pageNow,int pageSize){
 		List<User> list = new LinkedList();
 		
@@ -102,5 +107,20 @@ public class UserBeanProcess {
 		
 		return list;
 	}
-
+	
+	
+	/**
+	 * Update User 
+	 * @param user
+	 * @return int modification
+	 */
+	public int UpdateUser(User user){
+		
+		int modification=hibernateDao.updateUser(user);
+		
+		
+		return modification;
+	}
+	
+	
 }

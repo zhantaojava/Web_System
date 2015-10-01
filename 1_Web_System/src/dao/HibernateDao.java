@@ -21,7 +21,8 @@ public class HibernateDao {
 	private static ServiceRegistry serviceRegistry;
 
 	private int pageCount;
-	private int pageSize ;
+	private int pageSize;
+
 	/**
 	 * 
 	 * @param username
@@ -49,7 +50,7 @@ public class HibernateDao {
 		session.getTransaction().commit();
 
 		return list;
-		
+
 	}
 
 	/**
@@ -75,7 +76,7 @@ public class HibernateDao {
 		return obj;
 
 	}
-	
+
 	/**
 	 * 
 	 * @return
@@ -106,9 +107,7 @@ public class HibernateDao {
 		return pageCount;
 
 	}
-	
-	
-	
+
 	/**
 	 * Paging
 	 * 
@@ -137,4 +136,40 @@ public class HibernateDao {
 		return list;
 	}
 
+	/**
+	 * Update user by userId
+	 * 
+	 * @param user
+	 */
+	public int updateUser(User user) {
+		Configuration configuration = new Configuration();
+		configuration.configure();
+
+		serviceRegistry = new ServiceRegistryBuilder().applySettings(
+				configuration.getProperties()).buildServiceRegistry();
+		sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+
+		Session session = sessionFactory.getCurrentSession();
+
+		session.beginTransaction();
+		Query query = session.createQuery("update User set "+
+		"name=:name,"+
+		"pw=:pw,"+
+		"age=:age,"+
+		"date=:date"+
+				 " where id = :id");
+
+		System.out.println("name" + user.getName());
+
+		query.setParameter("name", user.getName());
+		query.setParameter("id", user.getId());
+		query.setParameter("pw", user.getPw());
+		query.setParameter("age", user.getAge());
+		query.setParameter("date", user.getDate());
+		int modifications = query.executeUpdate();
+
+		session.getTransaction().commit();
+
+		return modifications;
+	}
 }

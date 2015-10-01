@@ -148,7 +148,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      
      <br>     <br>     <br>     <br>     <br>     <br>     <br>     <br>
      <form action="getUser">
-    	Get Username:<input type="text" name="username">
+    	Search User:<input type="text" name="username">
     	<input type="submit"value="submit">
      </form>
      <br><br><br>
