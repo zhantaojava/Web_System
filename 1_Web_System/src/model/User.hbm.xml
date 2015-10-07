@@ -15,7 +15,7 @@
     <property name="age" ></property>
    	<property name="pw"></property>
    	<property name="date"></property>
-   	
+   	<property name="email"></property>
    </class>
    
 </hibernate-mapping>

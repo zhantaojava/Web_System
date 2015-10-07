@@ -110,12 +110,13 @@ public class LoginProcessController {
 	public ModelAndView GetUserProfile(@PathVariable String username) {
 
 		mv = new ModelAndView("userProfile");
-		System.out.println("uname:" + username);
 
 		User user = new User();
-
+		
 		user = ubp.GetUserProfile(username);
-
+		
+		
+		
 		mv.addObject("user", user);
 
 		return mv;
@@ -162,9 +163,11 @@ public class LoginProcessController {
 		list = ubp.RetrieveUser(pageNow, pageSize);
 
 		mv = new ModelAndView("wel");
-
+		
+		System.out.println("row Count:"+list.size());
+		//TODO fix last page display
 		mv.addObject("userList", list);
-
+		
 		return mv;
 
 	}
@@ -177,7 +180,6 @@ public class LoginProcessController {
 	@RequestMapping(value = "{username}/edit", method = RequestMethod.GET)
 	public ModelAndView EditUserProfile(
 			@PathVariable("username") String username) {
-		System.out.println("uname:" + username);
 		User user = new User();
 		
 		user = ubp.GetUserProfile(username);
@@ -200,7 +202,11 @@ public class LoginProcessController {
 		Date date=new Date();
 		user.setDate(date);
 		
+		System.out.println("email:"+user.getEmail());
+		
+		
 		ubp.UpdateUser(user);
+		
 		
 		
 		mv=new ModelAndView("redirect:user/" + user.getName());

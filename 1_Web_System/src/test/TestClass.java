@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -14,7 +15,6 @@ import dao.HibernateDao;
 public class TestClass {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		
 		User user=new User();
 		Date date=new Date();
@@ -34,6 +34,20 @@ public class TestClass {
 
 		
 	}
+	@Test
+	public void TestGetUser(){
+		User user=new User();
+		
+		HibernateDao h=new HibernateDao();
+		
+		
+		user=(User) h.searchUser("shabi");
+		
+		
+		
+	}
+	
+	
 
 	
 }

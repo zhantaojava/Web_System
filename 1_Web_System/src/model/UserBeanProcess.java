@@ -68,7 +68,7 @@ public class UserBeanProcess {
 			user.setAge(age);
 			user.setPw(password);
 			user.setDate(date);
-
+			
 			Object object = hibernateDao.save(user);
 			statue = true;
 			return statue;

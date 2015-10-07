@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,model.User" pageEncoding="US-ASCII"%>
+<%@ page language="java" import="java.util.*" pageEncoding="US-ASCII"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'userProfile.jsp' starting page</title>
+    <title>My JSP 'Main.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -21,20 +21,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 
   </head>
-  
-  <body>
-  
-    View UserProfile<br>
+  <center>
+  <body><br>
+    Welcome to my Zone <br>
     <br>
-    Name:  ${user.getName()}<br>
-    Age:   ${user.getAge()}<br>
-    Date:  ${user.getDate() }<br> 
-    Email: ${user.getEmail()}<br>
-    <a href="${user.getName()}/edit">Edit Profile</a><br>
-    <a href="wel.jsp">Back to HomePage</a>
-    <!-- recommend use Id to get user profile ,in case of conflict username  -->
-    <br>
-    
-    
+    <a href="login.jsp">Login</a>
   </body>
+  </center>
 </html>

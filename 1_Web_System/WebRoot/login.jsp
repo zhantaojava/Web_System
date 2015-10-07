@@ -1,4 +1,6 @@
-<%@ page language="java" import="java.util.*" pageEncoding="US-ASCII"%>
+<%@ page language="java" import="java.util.*,dao.HibernateDao" pageEncoding="US-ASCII"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,8 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'helloworld.jsp' starting page</title>
-    
+    <title>My JSP 'index.jsp' starting page</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -19,25 +20,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
   </head>
-  
+  <center>
   <body>
-   
-   <center>  Spring Test <br>
-   <form action="login" method="post">
-    UserName:<input type="text" name="username"><br>
-    PassWord:<input type="text" name="password"><br>
-    <input type="submit"value="Submit">
-    <input type="reset"value="Reset">
-   </form>
-   <form action="register.jsp">
-     	<button type="submit">Register</button>
-     	</form>
-   <br><br>
-   ${ErrorMessage }
-    </center>
-     
+  Please Enter You UserName and PassWord<br>
+  
+<br>
+<form action="loginValidation" method="post">
+  UserName:<input type="text" name="username"><br><br>
+    PassWord:<input type="text" name="password"><br><br>
+<input type="submit" value="Submit">
+
+</form>
     
+    ${kj }
+    ${message }
   </body>
+  </center>
 </html>

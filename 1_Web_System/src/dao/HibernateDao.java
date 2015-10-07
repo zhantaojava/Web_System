@@ -156,7 +156,8 @@ public class HibernateDao {
 		"name=:name,"+
 		"pw=:pw,"+
 		"age=:age,"+
-		"date=:date"+
+		"date=:date,"+
+		"email=:email"+
 				 " where id = :id");
 
 		System.out.println("name" + user.getName());
@@ -166,6 +167,7 @@ public class HibernateDao {
 		query.setParameter("pw", user.getPw());
 		query.setParameter("age", user.getAge());
 		query.setParameter("date", user.getDate());
+		query.setParameter("email", user.getEmail());
 		int modifications = query.executeUpdate();
 
 		session.getTransaction().commit();

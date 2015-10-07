@@ -120,11 +120,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<td>Name:</td>
 			<td>Age:</td>
 			<td>Date:</td>
+			<td>Email:</td>
 			</tr>
 			<tr>
-			<td>${userList.get(0).getName()}</td>
-			<td>${userList.get(0).getAge()}</td>
-			<td>${userList.get(0).getDate()}</td>
+				<td>${userList.get(0).getName()}</td>
+				<td>${userList.get(0).getAge()}</td>
+				<td>${userList.get(0).getDate()}</td>
+				<td>${userList.get(0).getEmail()}</td>
+			</tr>
+			<tr>
+				<td>${userList.get(1).getName()}</td>
+				<td>${userList.get(1).getAge()}</td>
+				<td>${userList.get(1).getDate()}</td>
+				<td>${userList.get(1).getEmail()}</td>
+			</tr>
+			<tr>
+				<td>${userList.get(2).getName()}</td>
+				<td>${userList.get(2).getAge()}</td>
+				<td>${userList.get(2).getDate()}</td>
+				<td>${userList.get(2).getEmail()}</td>
+			</tr>
+			
+						
+			
 			
 			
 		</table>

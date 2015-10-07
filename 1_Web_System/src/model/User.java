@@ -8,6 +8,13 @@ public class User {
 	private int age;
 	private String pw;
 	private Date date;
+	private String email;
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public int getId() {
 		return id;
 	}
