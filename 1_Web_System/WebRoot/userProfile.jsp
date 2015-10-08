@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     Date:  ${user.getDate() }<br> 
     Email: ${user.getEmail()}<br>
     <a href="${user.getName()}/edit">Edit Profile</a><br>
-    <a href="wel.jsp">Back to HomePage</a>
+    <a href="retrieveUser">Back to HomePage</a>
     <!-- recommend use Id to get user profile ,in case of conflict username  -->
     <br>
     

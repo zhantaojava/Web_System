@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>  
 <%@ page language="java" import="java.util.*" pageEncoding="US-ASCII"%>
 <%
 String path = request.getContextPath();
@@ -23,6 +25,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    This is my JSP page. <br>
+    int binding <br>
+	<form action="test1">
+	Int:<input name="count">
+	<input type="submit" value="submit">
+	</form>
+	    
+    
+    
+    Model Binding & @RequestParam
+    <form action="test2" >
+    Name:<input name="name">
+    Age:<input name="aage">
+    <input type="submit" value="submit">
+    
+    </form>
+    
+    
+    
+    ModelAtrribute Binding
+    
+    <form name="u"  action="test3"  >
+    Name:<input name="uname">
+    Age:<input name="myage">
+    <input type="submit" value="submit">
+    
+    </form>
+    
+    
   </body>
 </html>

@@ -165,7 +165,7 @@ public class LoginProcessController {
 		mv = new ModelAndView("wel");
 		
 		System.out.println("row Count:"+list.size());
-		//TODO fix last page display
+
 		mv.addObject("userList", list);
 		
 		return mv;
@@ -197,7 +197,7 @@ public class LoginProcessController {
 	 * @return
 	 */
 	@RequestMapping(value="{name}",method=RequestMethod.POST)
-	public ModelAndView UpdateUser(@ModelAttribute("user") User user){
+	public ModelAndView UpdateUser(User user){
 		
 		Date date=new Date();
 		user.setDate(date);
@@ -214,5 +214,5 @@ public class LoginProcessController {
 		
 		return mv;
 	}
-
+	
 }
