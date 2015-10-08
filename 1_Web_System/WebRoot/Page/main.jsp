@@ -26,6 +26,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     Welcome to my Zone <br>
     <br>
     <a href="login.jsp">Login</a>
+    <br><br>
+    <a href="register.jsp">Register</a>
   </body>
   </center>
 </html>

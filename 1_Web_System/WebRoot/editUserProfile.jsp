@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	Username:<input type="text" name="name"  value="${userProfile.getName() }"><br>
 	Password:<input type="text" name="pw"  value="${userProfile.getPw() }"><br>
 	Age:<input type="text" name="age"  value="${userProfile.getAge() }"><br>
-	Email:<input type="text" name="email"  value="${userProfile.getEmail() }"><br>
+	Email:<input type="text" name="email"  value="${userProfile.getEmail() }"><br><br>
 	<input type="submit" name="Submit">
 	</form:form>
   </body>

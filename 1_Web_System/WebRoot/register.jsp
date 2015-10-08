@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body bgcolor="#CED3FE">
   	<center>
   	
-    Please Fill The Form
+    Please Fill The Form<br><br>
     <form name="register_form" action="addUser" method="post" >
     	 
     	 <table >
@@ -37,7 +37,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<td><br><button type="submit">Submit</button></td>
     	<td><br><button type="reset">Reset</button></td>
     </form>
-    <tr><td><form action="main.jsp">
+    <tr><td>
+    <form action="main.jsp">
     <button>Back</button></form></td></tr>
     </table>
     </center>
