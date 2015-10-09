@@ -45,12 +45,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     ModelAtrribute Binding
     
-    <form name="u"  action="test3"  >
-    Name:<input name="uname">
-    Age:<input name="myage">
+    <form:form modelAttribute="u"   action="test3"  >
+    Name:<input name="${user.name}">
+    Age:<input name="${user.age }">
     <input type="submit" value="submit">
     
-    </form>
+    </form:form>
     
     
   </body>

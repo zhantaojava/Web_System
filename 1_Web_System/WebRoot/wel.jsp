@@ -95,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td><%=user.getPw()%></td>
 				<td><%=user.getAge()%></td>
 				<td><%=user.getDate()%></td>
-
+				<td>${userList.get(i).getName()}</td>
 				<%
 					}
 				%>
@@ -121,25 +121,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<td>Age:</td>
 			<td>Date:</td>
 			<td>Email:</td>
+			<td>Setting:</td>
 			</tr>
+			
 			<tr>
 				<td>${userList.get(0).getName()}</td>
 				<td>${userList.get(0).getAge()}</td>
 				<td>${userList.get(0).getDate()}</td>
 				<td>${userList.get(0).getEmail()}</td>
+				<td><a href="${userList.get(0).getName()}/edit">Edit</a></td>
 			</tr>
 			<tr>
 				<td>${userList.get(1).getName()}</td>
 				<td>${userList.get(1).getAge()}</td>
 				<td>${userList.get(1).getDate()}</td>
 				<td>${userList.get(1).getEmail()}</td>
+				<td><a href="${userList.get(1).getName()}/edit">Edit</a></td>
 			</tr>
 			<tr>
 				<td>${userList.get(2).getName()}</td>
 				<td>${userList.get(2).getAge()}</td>
 				<td>${userList.get(2).getDate()}</td>
 				<td>${userList.get(2).getEmail()}</td>
+				<td><a href="${userList.get(2).getName()}/edit">Edit</a></td>
 			</tr>
+			
 			
 						
 			
